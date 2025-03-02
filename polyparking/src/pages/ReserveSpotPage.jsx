@@ -29,6 +29,12 @@ const ReserveSpotPage = () => {
 
     const handleReserve = () => {
         if (selectedSpot) {
+            const reservationInfo = {
+                lotId,
+                spotId: selectedSpot,
+                time: new Date().toLocaleString()
+            };
+            localStorage.setItem('reservationInfo', JSON.stringify(reservationInfo));
             navigate(`/confirmation/${lotId}/${selectedSpot}`);
         }
     };
