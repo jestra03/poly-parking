@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import { Button } from '../components/ui/button';
 import lotAImage from '../assets/a.jpg';
 import lotBImage from '../assets/c.jpg';
 import lotCImage from '../assets/g.jpg';
@@ -115,19 +116,19 @@ const ReserveSpotPage = () => {
                     </div>
                 </div>
 
-                <button
+                <Button
                     className={`button-secondary w-full max-w-xs mb-4 ${!selectedSpot ? 'opacity-50 cursor-not-allowed' : ''}`}
                     onClick={handleReserve}
                     disabled={!selectedSpot}
                 >
                     Reserve
-                </button>
-                <button
+                </Button>
+                <Button
                     className="button-secondary w-full max-w-xs"
                     onClick={() => {setSelectedSpot(null); navigate('/lots')}}
                 >
                     Back to Lots
-                </button>
+                </Button>
             </div>
             <Navbar />
         </div>
