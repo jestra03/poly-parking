@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import lotAImage from '../assets/a.jpg';
+import lotBImage from '../assets/c.jpg';
+import lotCImage from '../assets/g.jpg';
+import lotDImage from '../assets/h.jpg';
+import lotEImage from '../assets/k.jpg';
+import lotFImage from '../assets/r.jpg';
 
 const ReserveSpotPage = () => {
     const { lotId } = useParams();
     const navigate = useNavigate();
     const [selectedSpot, setSelectedSpot] = useState(null);
+
+    const parkingLots = [
+        { id: 'a', name: 'Lot A', available: 3, total: 45, image: lotAImage },
+        { id: 'c', name: 'Lot C', available: 7, total: 100, image: lotBImage },
+        { id: 'g', name: 'Lot G', available: 3, total: 50, image: lotCImage },
+        { id: 'h', name: 'Lot H', available: 3, total: 88, image: lotDImage },
+        { id: 'k', name: 'Lot K', available: 5, total: 300, image: lotEImage },
+        { id: 'r', name: 'Lot R', available: 6, total: 99, image: lotFImage },
+    ];
+    const lot = parkingLots.find(lot => lot.id === lotId);
+
 
     // mock data
     const availableSpots = [
@@ -29,6 +46,12 @@ const ReserveSpotPage = () => {
 
     const handleReserve = () => {
         if (selectedSpot) {
+            const reservationInfo = {
+                lotId,
+                spotId: selectedSpot,
+                time: new Date().toLocaleString()
+            };
+            localStorage.setItem('reservationInfo', JSON.stringify(reservationInfo));
             navigate(`/confirmation/${lotId}/${selectedSpot}`);
         }
     };
@@ -39,17 +62,28 @@ const ReserveSpotPage = () => {
             <div className="content-container">
                 <h2 className="text-xl font-medium mb-6">Reserve a Spot</h2>
                 <h3 className="text-lg mb-4">Lot {lotId.toUpperCase()}</h3>
+                <div className="w-full max-w-xs mb-2 overflow-hidden">
+                    <img
+                        src={lot.image}
+                        alt={`Parking ${lot.name}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://via.placeholder.com/150?text=Parking+Lot';
+                        }}
+                    />
+                </div>
 
                 <div className="relative w-full max-w-xs mb-10">
                     {/* parking lot layout */}
-                    <div className="border border-gray-400 p-2 bg-white">
+                    <div className="border border-gray-400 p-2 bg-white dark:bg-gray-800 dark:border-gray-800">
                         <div className="flex flex-row justify-between">
                             <div className="w-1/2 pr-1">
                                 {/* left row of parking spots */}
                                 {availableSpots.slice(0, 5).map((spot) => (
                                     <div
                                         key={spot.id}
-                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer ${
+                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer dark:text-black ${
                                             spot.status === 'available'
                                                 ? 'bg-green-200 hover:bg-green-300'
                                                 : 'bg-gray-300'
@@ -66,7 +100,7 @@ const ReserveSpotPage = () => {
                                 {availableSpots.slice(5, 10).map((spot) => (
                                     <div
                                         key={spot.id}
-                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer ${
+                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer dark:text-black ${
                                             spot.status === 'available'
                                                 ? 'bg-green-200 hover:bg-green-300'
                                                 : 'bg-gray-300'
@@ -82,11 +116,17 @@ const ReserveSpotPage = () => {
                 </div>
 
                 <button
-                    className="button-secondary w-32"
+                    className={`button-secondary w-full max-w-xs mb-4 ${!selectedSpot ? 'opacity-50 cursor-not-allowed' : ''}`}
                     onClick={handleReserve}
                     disabled={!selectedSpot}
                 >
                     Reserve
+                </button>
+                <button
+                    className="button-secondary w-full max-w-xs"
+                    onClick={() => {setSelectedSpot(null); navigate('/lots')}}
+                >
+                    Back to Lots
                 </button>
             </div>
             <Navbar />

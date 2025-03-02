@@ -11,6 +11,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body, html {
+  @apply bg-white text-black;
+}
+
+html.dark, body.dark {
+  @apply bg-gray-900 text-white;
+}
+
 @layer components {
   .button-primary {
     @apply bg-blue-600 text-white font-medium py-2 px-4 rounded-md;

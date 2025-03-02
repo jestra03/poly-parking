@@ -29,7 +29,7 @@ const LoginPage = () => {
                                 type="text"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
-                                className="input-field"
+                                className="input-field dark:text-black"
                                 placeholder="jmustang"
                                 required
                             />
@@ -42,7 +42,7 @@ const LoginPage = () => {
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="input-field"
+                                className="input-field dark:text-black"
                                 placeholder="••••••••••"
                                 required
                             />
