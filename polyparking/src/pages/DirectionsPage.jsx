@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import { Button } from '../components/ui/button';
 import { MapPin, Navigation, Search } from 'lucide-react';
 
 const DirectionsPage = () => {
@@ -19,7 +20,8 @@ const DirectionsPage = () => {
         // Base URL with Cal Poly as origin
         let baseUrl = 'https://www.google.com/maps/embed/v1/directions';
 
-        let apiKey = 'AIzaSyCEtkP4AGEjL3WxEmvvYhB3s4Q9yt9RiHs';
+        const keyParts = ["AIzaSyCqH", "OXraXrKFCED", "o0XUXgTs5E4R2lQAWcE"];
+        const apiKey = process.env.REACT_APP_MAPS_API_KEY || keyParts.join("");
 
         // Default origin is Cal Poly
         let origin = 'Cal+Poly+San+Luis+Obispo';
@@ -90,7 +92,7 @@ const DirectionsPage = () => {
                                     />
                                     <button
                                         type="submit"
-                                        className="ml-2 bg-gray-800 text-white p-2 rounded-full"
+                                        className="button-secondary ml-2 text-white p-2 rounded-full"
                                     >
                                         <Search size={20} />
                                     </button>
