@@ -42,14 +42,14 @@ const ReserveSpotPage = () => {
 
                 <div className="relative w-full max-w-xs mb-10">
                     {/* parking lot layout */}
-                    <div className="border border-gray-400 p-2 bg-white">
+                    <div className="border border-gray-400 p-2 bg-white dark:bg-gray-800 dark:border-gray-800">
                         <div className="flex flex-row justify-between">
                             <div className="w-1/2 pr-1">
                                 {/* left row of parking spots */}
                                 {availableSpots.slice(0, 5).map((spot) => (
                                     <div
                                         key={spot.id}
-                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer ${
+                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer dark:text-black ${
                                             spot.status === 'available'
                                                 ? 'bg-green-200 hover:bg-green-300'
                                                 : 'bg-gray-300'
@@ -66,7 +66,7 @@ const ReserveSpotPage = () => {
                                 {availableSpots.slice(5, 10).map((spot) => (
                                     <div
                                         key={spot.id}
-                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer ${
+                                        className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer dark:text-black ${
                                             spot.status === 'available'
                                                 ? 'bg-green-200 hover:bg-green-300'
                                                 : 'bg-gray-300'

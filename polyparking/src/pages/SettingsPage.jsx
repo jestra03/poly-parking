@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import { useTheme } from '../context/ThemeContext';
 
 const SettingsPage = () => {
     const navigate = useNavigate();
     const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-    const [darkModeEnabled, setDarkModeEnabled] = useState(false);
+    //const [darkModeEnabled, setDarkModeEnabled] = useState(false);
     const [reminderTime, setReminderTime] = useState(15);
+    const { darkMode, setDarkMode } = useTheme();
 
     const handleLogout = () => {
         navigate('/');
@@ -41,8 +43,8 @@ const SettingsPage = () => {
                                 <input
                                     type="checkbox"
                                     id="darkMode"
-                                    checked={darkModeEnabled}
-                                    onChange={() => setDarkModeEnabled(!darkModeEnabled)}
+                                    checked={darkMode}
+                                    onChange={() => setDarkMode(!darkMode)}
                                     className="sr-only peer"
                                 />
                                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
@@ -57,7 +59,7 @@ const SettingsPage = () => {
                                 id="reminderTime"
                                 value={reminderTime}
                                 onChange={(e) => setReminderTime(Number(e.target.value))}
-                                className="input-field"
+                                className="input-field dark:text-black"
                             >
                                 <option value={5}>5 minutes</option>
                                 <option value={10}>10 minutes</option>

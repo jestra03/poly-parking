@@ -50,7 +50,7 @@ const DirectionsPage = () => {
                                         value={destination}
                                         onChange={(e) => setDestination(e.target.value)}
                                         placeholder="Enter Building"
-                                        className="input-field flex-1"
+                                        className="input-field flex-1 dark:text-black"
                                     />
                                     <button
                                         type="submit"
