@@ -6,12 +6,12 @@ import { Button } from '../components/ui/button';
 import { MapPin, Navigation } from 'lucide-react';
 
 // lot images
-import lotAImage from '../assets/lot-a.jpg';
-import lotBImage from '../assets/lot-b.jpg';
-import lotCImage from '../assets/lot-c.jpg';
-import lotDImage from '../assets/lot-d.jpg';
-import lotEImage from '../assets/lot-e.jpg';
-import lotFImage from '../assets/lot-f.jpg';
+import lotAImage from '../assets/a.jpg';
+import lotBImage from '../assets/c.jpg';
+import lotCImage from '../assets/g.jpg';
+import lotDImage from '../assets/h.jpg';
+import lotEImage from '../assets/k.jpg';
+import lotFImage from '../assets/r.jpg';
 
 const ConfirmationPage = () => {
     const { lotId, spotId } = useParams();
@@ -20,11 +20,11 @@ const ConfirmationPage = () => {
 
     const lotImages = {
         a: lotAImage,
-        b: lotBImage,
-        c: lotCImage,
-        d: lotDImage,
-        e: lotEImage,
-        f: lotFImage,
+        c: lotBImage,
+        g: lotCImage,
+        h: lotDImage,
+        k: lotEImage,
+        r: lotFImage,
     };
 
     // Mapping lot IDs to actual locations on Cal Poly campus
@@ -48,7 +48,7 @@ const ConfirmationPage = () => {
         const ampm = hours >= 12 ? 'PM' : 'AM';
         const formattedHours = (hours % 12 || 12).toString();
 
-        return `${month}/${day}/${year}\n${formattedHours}:${minutes} ${ampm}`;
+        return ${month}/${day}/${year}\n${formattedHours}:${minutes} ${ampm};
     };
 
     // Google Maps URL with API integration
@@ -63,7 +63,7 @@ const ConfirmationPage = () => {
         let location = encodeURIComponent(lotLocations[lotId] || 'Cal Poly San Luis Obispo');
 
         // Construct the URL
-        return `${baseUrl}?key=${apiKey}&q=${location}&zoom=16`;
+        return ${baseUrl}?key=${apiKey}&q=${location}&zoom=16;
     };
 
     const handleGetDirections = () => {
@@ -73,7 +73,7 @@ const ConfirmationPage = () => {
     };
 
     const handleChangeReservation = () => {
-        navigate(`/reserve/${lotId}`);
+        navigate(/reserve/${lotId});
     };
 
     const toggleMap = () => {
@@ -87,6 +87,7 @@ const ConfirmationPage = () => {
                 <h2 className="text-xl font-medium mb-6">Confirmed</h2>
 
                 <div className="w-full max-w-md mb-6">
+
                     <div className="mb-4 relative">
                         {showMap ? (
                             <div className="w-full h-48 relative">
@@ -106,7 +107,7 @@ const ConfirmationPage = () => {
                         ) : (
                             <img
                                 src={lotImages[lotId] || 'https://via.placeholder.com/300?text=Parking+Lot'}
-                                alt={`Parking Lot ${lotId.toUpperCase()}`}
+                                alt={Parking Lot ${lotId.toUpperCase()}}
                                 className="w-full h-48 object-cover"
                             />
                         )}
@@ -117,6 +118,7 @@ const ConfirmationPage = () => {
                         >
                             {showMap ? 'Show Image' : 'Show Map'}
                         </button>
+
                     </div>
 
                     <div className="text-center mb-8">
@@ -147,6 +149,12 @@ const ConfirmationPage = () => {
                             onClick={handleChangeReservation}
                         >
                             Change Reservation
+                        </button>
+                        <button
+                            className="button-secondary w-48"
+                            onClick={() => {navigate('/lots')}}
+                        >
+                            Back to Lots
                         </button>
                     </div>
                 </div>
