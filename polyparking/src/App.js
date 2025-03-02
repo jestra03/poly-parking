@@ -2,14 +2,16 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 
+
 // import pages
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import LotsPage from './pages/LotsPage';
-import ReserveSpotPage from './pages/ReserveSpotPage';
-import ConfirmationPage from './pages/ConfirmationPage';
-import DirectionsPage from './pages/DirectionsPage';
-import SettingsPage from './pages/SettingsPage';
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import LotsPage from "./pages/LotsPage";
+import ReserveSpotPage from "./pages/ReserveSpotPage";
+import ConfirmationPage from "./pages/ConfirmationPage";
+import DirectionsPage from "./pages/DirectionsPage";
+import SettingsPage from "./pages/SettingsPage";
+import ReservationsPage from "./pages/ReservationsPage";
 
 function App() {
   return (
