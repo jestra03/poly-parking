@@ -5,6 +5,25 @@ import Navbar from '../components/Navbar';
 
 const HomePage = () => {
     const navigate = useNavigate();
+    const reservationInfo = JSON.parse(localStorage.getItem('reservationInfo'));
+
+    let isReservationValid = false;
+    if (reservationInfo && reservationInfo.time) {
+        const reservationTime = new Date(reservationInfo.time);
+        const currentTime = new Date();
+        const timeDifference = currentTime - reservationTime;
+        const eightHours = 8 * 60 * 60 * 1000; // 8 hours in milliseconds
+        isReservationValid = timeDifference < eightHours;
+    }
+
+    const handleReserveASpot = () => {
+        if (!isReservationValid) {
+            console.log(isReservationValid, reservationInfo);
+            navigate('/lots');
+        } else {
+            navigate('/reservations');
+        }
+    }
 
     return (
         <div className="page-container">
@@ -18,7 +37,7 @@ const HomePage = () => {
 
                     <button
                         className="button-secondary mb-6  mt-4 w-48 bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
-                        onClick={() => navigate('/lots')}
+                        onClick={() => handleReserveASpot()}
                     >
                         Reserve A Spot
                     </button>
