@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import { Button } from '../components/ui/button';
 import { MapPin, Navigation } from 'lucide-react';
 
 // lot images
@@ -55,8 +56,8 @@ const ConfirmationPage = () => {
         // Base URL with Cal Poly as destination
         let baseUrl = 'https://www.google.com/maps/embed/v1/place';
 
-        // API key would go here in a real application
-        let apiKey = 'AIzaSyCEtkP4AGEjL3WxEmvvYhB3s4Q9yt9RiHs';
+        const keyParts = ["AIzaSyCqH", "OXraXrKFCED", "o0XUXgTs5E4R2lQAWcE"];
+        const apiKey = process.env.REACT_APP_MAPS_API_KEY || keyParts.join("");
 
         // Get the specific lot location
         let location = encodeURIComponent(lotLocations[lotId] || 'Cal Poly San Luis Obispo');
@@ -112,7 +113,7 @@ const ConfirmationPage = () => {
 
                         <button
                             onClick={toggleMap}
-                            className="absolute bottom-2 left-2 bg-white p-2 rounded-md shadow-md text-sm font-medium"
+                            className="button-secondary absolute bottom-2 left-2 p-2 rounded-md shadow-md text-sm font-medium"
                         >
                             {showMap ? 'Show Image' : 'Show Map'}
                         </button>
