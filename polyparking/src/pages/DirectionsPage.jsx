@@ -148,7 +148,7 @@ const DirectionsPage = () => {
                     </div>
 
                     {/* ETA information */}
-                    <div className="p-4 bg-white">
+                    <div className="p-4 bg-white dark:bg-gray-900">
                         <div className="mb-1">
                             <p className="font-medium">ETA: {eta}</p>
                             <p>Traffic: {traffic}</p>
