@@ -82,7 +82,7 @@ const ConfirmationPage = () => {
             <div className="content-container">
                 <h2 className="text-xl font-medium mb-6">Confirmed</h2>
 
-                <div className="w-full max-w-md mb-6">
+                <div className="w-full max-w-xs mb-6">
                     <div className="mb-4 relative">
                         {showMap ? (
                             <div className="w-full h-48 relative">
@@ -103,7 +103,7 @@ const ConfirmationPage = () => {
                             <img
                                 src={lotImages[lotId] || 'https://via.placeholder.com/300?text=Parking+Lot'}
                                 alt={`Parking Lot ${lotId.toUpperCase()}`}
-                                className="w-full h-48 object-cover"
+                                className="w-full object-cover"
                             />
                         )}
 
@@ -115,7 +115,7 @@ const ConfirmationPage = () => {
                         </button>
                     </div>
 
-                    <div className="text-center mb-8">
+                    <div className="text-center mb-4">
                         <p className="text-lg font-medium">
                             Lot {lotId.toUpperCase()}
                             <br />
@@ -131,7 +131,7 @@ const ConfirmationPage = () => {
 
                     <div className="flex flex-col items-center space-y-4">
                         <Button
-                            className="button-secondary w-48 flex items-center justify-center"
+                            className="button-secondary w-full flex items-center justify-center"
                             onClick={handleGetDirections}
                         >
                             <Navigation size={16} className="mr-2" />
@@ -139,14 +139,21 @@ const ConfirmationPage = () => {
                         </Button>
 
                         <Button
-                            className="button-secondary w-48"
+                            className="button-secondary w-full"
+                            onClick={() => navigate('/reservations')}
+                        >
+                            View Reservation
+                        </Button>
+
+                        <Button
+                            className="button-secondary w-full"
                             onClick={handleChangeReservation}
                         >
                             Change Reservation
                         </Button>
 
                         <Button
-                            className="button-secondary w-48"
+                            className="button-secondary w-full"
                             onClick={() => navigate('/lots')}
                         >
                             Back to Lots

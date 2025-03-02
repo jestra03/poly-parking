@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import { Button } from '../components/ui/button';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -78,20 +79,26 @@ const ReservationsPage = () => {
                         </div>
 
                         <div className="space-y-4 mt-4">
-                            <button
+                            <Button
                                 className="button-secondary w-full"
                                 onClick={() => navigate(`/lots`)}
                             >
                                 Change Reservation
-                            </button>
-                            <button
+                            </Button>
+                            <Button
                                 className="button-secondary w-full"
                                 onClick={() => navigate('/directions')}
                             >
                                 Directions
-                            </button>
+                            </Button>
                             <AlertDialog>
-                                <AlertDialogTrigger className="button-secondary w-full bg-red-500">Cancel Reservation</AlertDialogTrigger>
+                                <AlertDialogTrigger className="w-full">
+                                    <Button
+                                        className="button-secondary w-full bg-red-500 hover:bg-red-600"
+                                    >
+                                    Cancel Reservation
+                                    </Button>
+                                </AlertDialogTrigger>
                                 <AlertDialogContent>
                                     <AlertDialogHeader>
                                     <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -101,7 +108,7 @@ const ReservationsPage = () => {
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
                                     <AlertDialogCancel>No, I don't want to Cancel</AlertDialogCancel>
-                                    <AlertDialogAction className="bg-red-500 hover:bg-red-300" onClick={() => {
+                                    <AlertDialogAction className="bg-red-500 hover:bg-red-600" onClick={() => {
                                     localStorage.removeItem('reservationInfo');
                                     navigate('/reservations');
                                 }}>Cancel Reservation</AlertDialogAction>
@@ -113,12 +120,12 @@ const ReservationsPage = () => {
                 ) : (
                     <>
                         <p>No reservations found.</p>
-                        <button
+                        <Button
                             className="button-secondary mb-4 w-48"
                             onClick={() => navigate('/lots')}
                         >
                             Reserve A Spot
-                        </button>
+                        </Button>
                     </>
                 )}
             </div>
