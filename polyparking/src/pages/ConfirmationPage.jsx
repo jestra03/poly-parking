@@ -4,12 +4,12 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 
 // lot images
-import lotAImage from '../assets/lot-a.jpg';
-import lotBImage from '../assets/lot-b.jpg';
-import lotCImage from '../assets/lot-c.jpg';
-import lotDImage from '../assets/lot-d.jpg';
-import lotEImage from '../assets/lot-e.jpg';
-import lotFImage from '../assets/lot-f.jpg';
+import lotAImage from '../assets/a.jpg';
+import lotBImage from '../assets/c.jpg';
+import lotCImage from '../assets/g.jpg';
+import lotDImage from '../assets/h.jpg';
+import lotEImage from '../assets/k.jpg';
+import lotFImage from '../assets/r.jpg';
 
 const ConfirmationPage = () => {
     const { lotId, spotId } = useParams();
@@ -17,11 +17,11 @@ const ConfirmationPage = () => {
 
     const lotImages = {
         a: lotAImage,
-        b: lotBImage,
-        c: lotCImage,
-        d: lotDImage,
-        e: lotEImage,
-        f: lotFImage,
+        c: lotBImage,
+        g: lotCImage,
+        h: lotDImage,
+        k: lotEImage,
+        r: lotFImage,
     };
 
     // format current date for display
@@ -53,11 +53,11 @@ const ConfirmationPage = () => {
                 <h2 className="text-xl font-medium mb-6">Confirmed</h2>
 
                 <div className="w-full max-w-md mb-6">
-                    <div className="mb-4">
+                    <div className="mb-4 flex justify-center">
                         <img
                             src={lotImages[lotId] || 'https://via.placeholder.com/300?text=Parking+Lot'}
                             alt={`Parking Lot ${lotId.toUpperCase()}`}
-                            className="w-full h-48 object-cover"
+                            className="max-h-64 object-cover"
                         />
                     </div>
 
@@ -85,6 +85,12 @@ const ConfirmationPage = () => {
                             onClick={handleChangeReservation}
                         >
                             Change Reservation
+                        </button>
+                        <button
+                            className="button-secondary w-48"
+                            onClick={() => {navigate('/lots')}}
+                        >
+                            Back to Lots
                         </button>
                     </div>
                 </div>

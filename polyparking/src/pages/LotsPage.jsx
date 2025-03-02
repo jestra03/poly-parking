@@ -12,14 +12,14 @@ import lotFImage from '../assets/lot-f.jpg';
 
 const LotsPage = () => {
     const navigate = useNavigate();
-
+    // data from https://afd.calpoly.edu/parking/parkingoncampus/parkinglots/
     const parkingLots = [
         { id: 'a', name: 'Lot A', available: 3, total: 45, image: lotAImage },
-        { id: 'b', name: 'Lot B', available: 7, total: 100, image: lotBImage },
-        { id: 'c', name: 'Lot C', available: 3, total: 50, image: lotCImage },
-        { id: 'd', name: 'Lot D', available: 3, total: 88, image: lotDImage },
-        { id: 'e', name: 'Lot E', available: 5, total: 300, image: lotEImage },
-        { id: 'f', name: 'Lot F', available: 6, total: 99, image: lotFImage },
+        { id: 'c', name: 'Lot C', available: 7, total: 100, image: lotBImage },
+        { id: 'g', name: 'Lot G', available: 3, total: 50, image: lotCImage },
+        { id: 'h', name: 'Lot H', available: 3, total: 88, image: lotDImage },
+        { id: 'k', name: 'Lot K', available: 5, total: 300, image: lotEImage },
+        { id: 'r', name: 'Lot R', available: 6, total: 99, image: lotFImage },
     ];
 
     const handleSelectLot = (lotId) => {

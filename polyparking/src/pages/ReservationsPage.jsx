@@ -2,10 +2,38 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "../components/ui/alert-dialog"
+// lot images
+import lotAImage from '../assets/a.jpg';
+import lotCImage from '../assets/c.jpg';
+import lotGImage from '../assets/g.jpg';
+import lotHImage from '../assets/h.jpg';
+import lotKImage from '../assets/k.jpg';
+import lotRImage from '../assets/r.jpg';
+
 
 const ReservationsPage = () => {
     const navigate = useNavigate();
     const reservationInfo = JSON.parse(localStorage.getItem('reservationInfo'));
+    const lotImages = {
+        a: lotAImage,
+        c: lotCImage,
+        g: lotGImage,
+        h: lotHImage,
+        k: lotKImage,
+        r: lotRImage,
+    };
+    const lotId = reservationInfo?.lotId || '';
 
     let isReservationValid = false;
     if (reservationInfo && reservationInfo.time) {
@@ -36,14 +64,20 @@ const ReservationsPage = () => {
             <div className="content-container">
                 <h2 className="text-xl font-medium mb-6">Reservations</h2>
                 {isReservationValid ? (
-                    <div className="w-full max-w-md mb-6">
+                    <div className="w-full max-w-xs mb-6">
                         <p className="text-lg font-medium">Lot ID: {reservationInfo.lotId.toUpperCase()}</p>
                         <p className="text-lg font-medium">Spot ID: {reservationInfo.spotId}</p>
                         <p className="whitespace-pre-line">Reservation Start: {reservationInfo.time}</p>
                         <p className="text-sm text-red-500">Valid for {getTimeRemaining()}</p>
+                        <div className="flex justify-center">
+                            <img
+                                src={lotImages[lotId] || 'https://via.placeholder.com/300?text=Parking+Lot'}
+                                alt={`Parking Lot ${lotId.toUpperCase()}`}
+                                className="w-full object-cover"
+                            />
+                        </div>
 
-
-                        <div className="space-y-4 mt-16">
+                        <div className="space-y-4 mt-4">
                             <button
                                 className="button-secondary w-full"
                                 onClick={() => navigate(`/lots`)}
@@ -56,15 +90,24 @@ const ReservationsPage = () => {
                             >
                                 Directions
                             </button>
-                            <button
-                                className="button-secondary w-full bg-red-500"
-                                onClick={() => {
+                            <AlertDialog>
+                                <AlertDialogTrigger className="button-secondary w-full bg-red-500">Cancel Reservation</AlertDialogTrigger>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                    <AlertDialogDescription>
+                                        This action cannot be undone. This will cancel your reservation and cannot be undone.
+                                    </AlertDialogDescription>
+                                    </AlertDialogHeader>
+                                    <AlertDialogFooter>
+                                    <AlertDialogCancel>No, I don't want to Cancel</AlertDialogCancel>
+                                    <AlertDialogAction className="bg-red-500 hover:bg-red-300" onClick={() => {
                                     localStorage.removeItem('reservationInfo');
                                     navigate('/reservations');
-                                }}
-                            >
-                                Cancel Reservation
-                            </button>
+                                }}>Cancel Reservation</AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                                </AlertDialog>
                         </div>
                     </div>
                 ) : (
