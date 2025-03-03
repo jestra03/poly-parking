@@ -41,6 +41,15 @@ const ReserveSpotPage = () => {
         // add more spots as needed
     ];
 
+    const lotLocations = {
+        a: "Cal Poly A-1 Parking",
+        c: "Cal Poly California Boulevard",
+        g: "Cal Poly G-2 Grand Avenue Structure",
+        h: "Cal Poly H-1 Parking",
+        k: "Cal Poly Truckee Road",
+        r: "Cal Poly Klamath Rd"
+    };
+
     const handleSelectSpot = (spotId) => {
         setSelectedSpot(spotId);
     };
@@ -53,6 +62,10 @@ const ReserveSpotPage = () => {
                 time: new Date().toLocaleString()
             };
             localStorage.setItem('reservationInfo', JSON.stringify(reservationInfo));
+
+            // store the location in localStorage for DirectionsPage
+            localStorage.setItem('selectedLot', lotLocations[lotId]);
+
             navigate(`/confirmation/${lotId}/${selectedSpot}`);
         }
     };
