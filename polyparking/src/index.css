@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.itim-font {
+  font-family: 'Itim', cursive;
+}
+
 
 body {
   margin: 0;

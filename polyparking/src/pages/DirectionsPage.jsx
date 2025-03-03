@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import { Button } from '../components/ui/button';
@@ -65,6 +65,14 @@ const DirectionsPage = () => {
         }
     };
 
+    useEffect(() => {
+        const storedLot = localStorage.getItem('selectedLot');
+        if (storedLot) {
+            setMapLocation(storedLot);
+        }
+    }, []);
+
+
     return (
         <div className="page-container">
             <Header />
@@ -79,15 +87,10 @@ const DirectionsPage = () => {
                                     <input
                                         type="text"
 
-                                        value={destination}
-                                        onChange={(e) => setDestination(e.target.value)}
-                                        placeholder="Enter Building"
-                                        className="input-field flex-1 dark:text-black"
-
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         placeholder="Search Cal Poly Buildings"
-                                        className="input-field flex-1"
+                                        className="input-field flex-1 dark:text-black"
 
                                     />
                                     <button

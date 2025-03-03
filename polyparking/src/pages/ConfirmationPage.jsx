@@ -29,12 +29,12 @@ const ConfirmationPage = () => {
 
     // Mapping lot IDs to actual locations on Cal Poly campus
     const lotLocations = {
-        a: "Cal Poly Grand Avenue Parking",
-        b: "Cal Poly Highland Drive Parking",
-        c: "Cal Poly H-12 Parking",
-        d: "Cal Poly H-16 Parking",
-        e: "Cal Poly Farm Shop Parking",
-        f: "Cal Poly Kennedy Library Parking"
+        a: "Cal Poly A-1 Parking",
+        c: "Cal Poly California Boulevard",
+        g: "Cal Poly G-2 Grand Avenue Structure",
+        h: "Cal Poly H-1 Parking",
+        k: "Cal Poly Truckee Road",
+        r: "Cal Poly Klamath Rd"
     };
 
     // Format current date for display
