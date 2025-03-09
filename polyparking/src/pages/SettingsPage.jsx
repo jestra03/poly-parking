@@ -71,12 +71,6 @@ const SettingsPage = () => {
                     </div>
 
                     <div className="pt-4">
-                        <button
-                            className="button-primary w-full mb-4"
-                            onClick={() => alert('Account settings would open here')}
-                        >
-                            Account Settings
-                        </button>
 
                         <button
                             className="button-secondary w-full"
