@@ -1,17 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-=======
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import { ThemeProvider } from "./context/ThemeContext";
->>>>>>> 5c6708442d46f714ff80627ebf455310219e5be6
 
 // import pages
 import LoginPage from "./pages/LoginPage";
