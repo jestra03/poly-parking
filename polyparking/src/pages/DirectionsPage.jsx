@@ -86,19 +86,12 @@ const DirectionsPage = () => {
                                 <div className="flex items-center">
                                     <input
                                         type="text"
-<<<<<<< HEAD
-                                        value={destination}
-                                        onChange={(e) => setDestination(e.target.value)}
-                                        placeholder="Enter Building"
-                                        className="input-field flex-1 dark:text-black"
-=======
 
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                         placeholder="Search Cal Poly Buildings"
                                         className="input-field flex-1 dark:text-black"
 
->>>>>>> 5c6708442d46f714ff80627ebf455310219e5be6
                                     />
                                     <button
                                         type="submit"
