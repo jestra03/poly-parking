@@ -3,23 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 
-import lotAImage from '../assets/lot-a.jpg';
-import lotBImage from '../assets/lot-b.jpg';
-import lotCImage from '../assets/lot-c.jpg';
-import lotDImage from '../assets/lot-d.jpg';
-import lotEImage from '../assets/lot-e.jpg';
-import lotFImage from '../assets/lot-f.jpg';
+import lotAImage from '../assets/a.jpg';
+import lotCImage from '../assets/c.jpg';
+import lotGImage from '../assets/g.jpg';
+import lotHImage from '../assets/h.jpg';
+import lotKImage from '../assets/k.jpg';
+import lotRImage from '../assets/r.jpg';
 
 const LotsPage = () => {
     const navigate = useNavigate();
-
+    // data from https://afd.calpoly.edu/parking/parkingoncampus/parkinglots/
     const parkingLots = [
         { id: 'a', name: 'Lot A', available: 3, total: 45, image: lotAImage },
-        { id: 'b', name: 'Lot B', available: 7, total: 100, image: lotBImage },
-        { id: 'c', name: 'Lot C', available: 3, total: 50, image: lotCImage },
-        { id: 'd', name: 'Lot D', available: 3, total: 88, image: lotDImage },
-        { id: 'e', name: 'Lot E', available: 5, total: 300, image: lotEImage },
-        { id: 'f', name: 'Lot F', available: 6, total: 99, image: lotFImage },
+        { id: 'c', name: 'Lot C', available: 7, total: 100, image: lotCImage },
+        { id: 'g', name: 'Lot G', available: 3, total: 50, image: lotGImage },
+        { id: 'h', name: 'Lot H', available: 3, total: 88, image: lotHImage },
+        { id: 'k', name: 'Lot K', available: 5, total: 300, image: lotKImage },
+        { id: 'r', name: 'Lot R', available: 6, total: 99, image: lotRImage },
     ];
 
     const handleSelectLot = (lotId) => {

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = ({ title }) => {
     return (
-        <header className="app-header dark:bg-gray-800 dark:text-white">
+        <header className="app-header italic text-green-800 dark:bg-gray-800 dark:text-white itim-font text-2xl">
             {title || "PolyParking"}
         </header>
     );

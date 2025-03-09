@@ -11,7 +11,11 @@ const Navbar = () => {
 
     return (
         <nav className="nav-bar dark:bg-gray-800">
+<<<<<<< HEAD
             <Link to="/" className={`flex flex-col items-center ${isActive('/') ? 'text-primary dark:text-white' : 'text-gray-500 dark:text-white'}`}>
+=======
+            <Link to="/home" className={`flex flex-col items-center ${isActive('/') ? 'text-primary dark:text-white' : 'text-gray-500 dark:text-white'}`}>
+>>>>>>> 5c6708442d46f714ff80627ebf455310219e5be6
                 <Home size={24} />
                 <span className="text-xs mt-1">Home</span>
             </Link>
