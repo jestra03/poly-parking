@@ -69,7 +69,7 @@ const ConfirmationPage = () => {
     };
 
     const handleChangeReservation = () => {
-        navigate(`/reserve/${lotId}`);
+        navigate(`/reserve/${lotId}?spotId=${spotId}`);
     };
 
     const toggleMap = () => {

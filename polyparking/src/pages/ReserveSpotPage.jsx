@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import { Button } from '../components/ui/button';
@@ -13,7 +13,12 @@ import lotFImage from '../assets/r.jpg';
 const ReserveSpotPage = () => {
     const { lotId } = useParams();
     const navigate = useNavigate();
-    const [selectedSpot, setSelectedSpot] = useState(null);
+
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const preselectedSpot = queryParams.get('spotId');
+
+    const [selectedSpot, setSelectedSpot] = useState(preselectedSpot ? Number(preselectedSpot) : null);
 
     const parkingLots = [
         { id: 'a', name: 'Lot A', available: 3, total: 45, image: lotAImage },
