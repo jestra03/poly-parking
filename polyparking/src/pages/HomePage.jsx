@@ -34,21 +34,27 @@ const HomePage = () => {
                         Available Parking:<br />
                         27 Spots
                     </p>
-
-                    <button
+                    {isReservationValid === false 
+                    ? <div>
+                        <button
                         className="button-secondary mb-6  mt-4 w-48 bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
                         onClick={() => handleReserveASpot()}
                     >
                         Reserve A Spot
+                    </button>
+                    </div>
+                    : <div>
+                        <button
+                        className="button-secondary mb-6  mt-4 w-48 bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+                        onClick={() => handleReserveASpot()}
+                    >
+                        Check Reservation
                     </button>
 
                     <p className="text-lg font-medium mb-6 mt-10">
                         Estimated Time to School:<br />
                         20 Minutes
                     </p>
-
-                   
-
                     <div className="mt-2">
                         <button
                             className="button-secondary mt-4 w-48 bg-blue-600 hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
@@ -57,6 +63,10 @@ const HomePage = () => {
                             Directions
                         </button>
                     </div>
+                    </div>}
+                   
+
+                    
                 </div>
             </div>
             <Navbar />
