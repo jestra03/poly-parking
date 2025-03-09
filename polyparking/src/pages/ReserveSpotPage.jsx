@@ -99,12 +99,12 @@ const ReserveSpotPage = () => {
                                         key={spot.id}
                                         className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer dark:text-black ${
                                             spot.status === 'available'
-                                                ? 'bg-green-200 hover:bg-green-300'
-                                                : 'bg-gray-300'
+                                                ? 'bg-gray-300 hover:bg-gray-400'
+                                                : 'bg-red-400'
                                         } ${selectedSpot === spot.id ? 'ring-2 ring-blue-500' : ''}`}
                                         onClick={() => spot.status === 'available' && handleSelectSpot(spot.id)}
                                     >
-                                        {spot.id}
+                                        {spot.status === 'available' ? `Spot ${spot.id}` : `Spot ${spot.id} Unavailable`}
                                     </div>
                                 ))}
                             </div>
@@ -116,12 +116,12 @@ const ReserveSpotPage = () => {
                                         key={spot.id}
                                         className={`h-8 mb-1 flex items-center justify-center rounded-sm border border-gray-300 cursor-pointer dark:text-black ${
                                             spot.status === 'available'
-                                                ? 'bg-green-200 hover:bg-green-300'
-                                                : 'bg-gray-300'
+                                                ? 'bg-gray-300 hover:bg-gray-400'
+                                                : 'bg-red-400'
                                         } ${selectedSpot === spot.id ? 'ring-2 ring-blue-500' : ''}`}
                                         onClick={() => spot.status === 'available' && handleSelectSpot(spot.id)}
                                     >
-                                        {spot.id}
+                                        {spot.status === 'available' ? `Spot ${spot.id}` : `Spot ${spot.id} Unavailable`}
                                     </div>
                                 ))}
                             </div>
