@@ -43,7 +43,7 @@ const LoginPage = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="input-field dark:text-black"
-                                placeholder="••••••••••"
+                                placeholder="password"
                                 required
                             />
                         </div>
